@@ -17,29 +17,21 @@ export function Dashboard() {
     const [cards, setCards] = useState<CardProps[]>([]);
 
     const fetchPokemons = async () => {
-        try {
             const data = await getPokemons();
             const promises = data.results.map(async (pokemon : any)=> {
                 return await getPokemonData(pokemon.name)
             })
             const results = await Promise.all(promises)
             setCards(results)
-        }   
-        catch(err) {
-        }
     }
 
     const fetchPokemonsSearch = async (searchinfo : any) => {
-        try {
             const data = await getPokemons();
             const promises = data.results.map(async (pokemon : any)=> {
                 return await getPokemonData(pokemon.name)
             })
             const results = await Promise.all(promises)
             return results.filter(result => result.name.includes(searchinfo))
-        }   
-        catch(err) {
-        }
     }
 
     function onlySpaces(str : string) {
