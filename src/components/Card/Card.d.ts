@@ -4,7 +4,7 @@ export interface CardProps {
     image?: string;
     type?: any;
     types?: any;
-    data?:any;
+    data?
     hp?: any;
     results?: any;
     attack?: any;

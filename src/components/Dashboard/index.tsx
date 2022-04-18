@@ -29,15 +29,30 @@ export function Dashboard() {
         }
     }
 
-    const onSearch = async (pokemon: any) => {
-        if(!pokemon) {
-            return fetchPokemons();
+    const fetchPokemonsSearch = async (searchinfo : any) => {
+        try {
+            const data = await getPokemons();
+            const promises = data.results.map(async (pokemon : any)=> {
+                return await getPokemonData(pokemon.name)
+            })
+            const results = await Promise.all(promises)
+            return results.filter(result => result.name.includes(searchinfo))
+        }   
+        catch(err) {
         }
-        const result = await searchPokemon(pokemon);
-        if(!result) {
-            console.log("not found");
-        }   else {
-        setCards([result])
+    }
+
+    function onlySpaces(str : string) {
+        return /^\s*$/.test(str);
+      }
+
+    const onSearch = async (pokemon: string) => {
+        if (onlySpaces(pokemon)) {
+            fetchPokemons()
+        } else {
+            // console.log(pokemon)
+            const SearchResult : any = await fetchPokemonsSearch(pokemon)
+            setCards(SearchResult)
         }
     }
 

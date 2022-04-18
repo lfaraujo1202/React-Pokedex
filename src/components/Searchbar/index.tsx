@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Searchbar (props : any) {
     const { onSearch } = props;
@@ -8,15 +8,15 @@ export function Searchbar (props : any) {
     const onChange = (getValue : any) => {
         setSearch(getValue.target.value);
     };
-
-    const onClick = async (getValue : any) => {
-        onSearch(search);
-    }
+    
+    useEffect(() => {
+        onSearch(search);   
+    }, [search]);
 
     return (
         <Container>
             <input onChange={onChange}></input>
-            <button onClick={onClick}>Search</button>
+            <button>Search</button>
         </Container>
     )
 }
