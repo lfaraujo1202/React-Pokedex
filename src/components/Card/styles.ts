@@ -11,7 +11,7 @@ export const Container = styled.div<CardProps>`
         justify-content: space-between;
         background: white;
         border-radius: 14px;
-        height: 360px;
+        height: 370px;
         width: 90%;
         margin-left: 32px;
         margin: 20px;
@@ -168,6 +168,18 @@ export const Container = styled.div<CardProps>`
         background: var(--green);
     }
 
+    .pokebg {
+        position: absolute;
+        width: 120px;
+        display: flex;
+        border-radius: 50px;
+        border: none;
+    }
+
+    .pokeball {
+        display: none;
+    }
+
     .icon img{
         height: 120px; 
         border-radius: 50%;
@@ -176,11 +188,17 @@ export const Container = styled.div<CardProps>`
         margin-bottom: 100px;
     }
 
-
+    .card:hover .pokebg{
+        transition: 0.1s;
+        width: 0px;
+        border: none;
+    }
 
     .card:hover img{
+        display: block;
         width: 100px;
-        height: 100px;       
+        height: 100px;
+        margin-left: 10px;
         transform-style: preserve-3d;
         transform: translate3d(0px,-60%,0px);
         transition: 0.2s;
@@ -249,6 +267,10 @@ export const Container = styled.div<CardProps>`
         : props.type === "fairy" ? 'var(--textfairy)' 
         : 'white'
         };
+        
+        &::first-letter {
+        text-transform: capitalize;
+        }
     }
 
     h5 {
@@ -259,8 +281,9 @@ export const Container = styled.div<CardProps>`
     }
 
     h6 {
+        font-family: 'Baloo 2', Arial, Helvetica, cursive;
         font-size: 0.8rem;
-        margin-top: 5px;
+        margin-top: 1px;
         color: white;
     }
 

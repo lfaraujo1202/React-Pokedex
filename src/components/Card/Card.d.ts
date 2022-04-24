@@ -2,6 +2,7 @@ export interface CardProps {
     id?: integer;
     name?: string;
     image?: string;
+    image2?: string;
     type?: any;
     types?: any;
     data?

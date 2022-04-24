@@ -52,6 +52,12 @@ export function Dashboard() {
         fetchPokemons()
     }, []);
 
+    function formatId(num : string, size : number) {
+        num = num.toString();
+        while (num.length < size) num = "0" + num;
+        return num;
+    }
+
     return (
         <Container >
         <div className="Searchbar">
@@ -65,7 +71,8 @@ export function Dashboard() {
                             key={pokemon.name}
                             id={pokemon.id} 
                             name={pokemon.name} 
-                            image={pokemon.sprites.front_default}
+                            image={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${formatId(pokemon.id, 3)}.png`}
+                            image2={pokemon.sprites.front_default}
                             type={pokemon.types[0].type.name}
                             hp={pokemon.stats[0].base_stat}
                             attack={pokemon.stats[1].base_stat}

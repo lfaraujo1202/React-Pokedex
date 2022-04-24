@@ -10,7 +10,7 @@ export function Searchbar (props : any) {
     };
     
     useEffect(() => {
-        onSearch(search);   
+        onSearch(search);
     }, [search]);
 
     return (
