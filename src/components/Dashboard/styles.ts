@@ -22,13 +22,14 @@ align-items: center;
     }
 
     .Searchbar{
-        max-width: 1120px;
+        max-width: 1060px;
         margin: auto;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
         padding: 0rem 2rem;
-        display: grid;
+        display: flex;
         justify-content: end;
         gap: 1.5rem;
         height: 30px;
+        justify-content: space-between;
     }
 `;

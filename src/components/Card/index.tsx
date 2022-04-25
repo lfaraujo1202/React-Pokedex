@@ -3,7 +3,7 @@ import type { CardProps } from "./Card";
 
 export function Card({ id, name, image, image2, type, hp, attack, defense}: CardProps) {
     return (
-        <Container name={name} id={id} image={image} type={type} hp={hp}>
+        <Container name={name} id={id} image={image} type={type[0].type.name} hp={hp}>
             <div className="card">
                 <h3>{name}</h3>
                 <h2>{id}</h2>
@@ -17,18 +17,21 @@ export function Card({ id, name, image, image2, type, hp, attack, defense}: Card
                 <div className="CenterBall">
                     <div className="CenterBall__button"></div>
                 </div>
-                <div className="CardColor">
-                    <h5>Tipo: {type}</h5>
 
-                    <div id="myProgress">
-                        <div id="myBar">
-                        </div>
+                <div className="CardColor">
+                    <div className='Atributes'>
+                        <h6 >HP: {hp}</h6>
+                        <h6>Ataque: {attack}</h6>
+                        <h6>Defesa: {defense}</h6>
                     </div>
-                    
-                    <h6>HP: {hp}</h6>
-                    <h6>Ataque: {attack}</h6>
-                    <h6>Defesa: {defense}</h6>
-                    <button>Detalhes</button>
+
+                    <div className="Types">
+                        {type.map((ptype : any, idx: any) => {
+                            return <div key={idx} className="tag">{ptype.type.name}</div>;
+                        })}
+                    </div>
+
+                    {/* <button>Detalhes</button> */}
                 </div>
             </div>
         </Container>

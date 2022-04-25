@@ -91,6 +91,7 @@ export const Container = styled.div<CardProps>`
 
     .CardColor{
         width: 100%;
+        height: 50.5%;
         background: ${
         props => 
         props.type === "normal" ? 'var(--normal)' 
@@ -118,7 +119,7 @@ export const Container = styled.div<CardProps>`
     
     .icon {
         width: 120px;
-        height: 120px; 
+        height: 120px;
     }
 
     .progress {
@@ -152,7 +153,7 @@ export const Container = styled.div<CardProps>`
         cursor: pointer;
         width: 200px;
         height: 40px;
-        margin-top: 1.5rem;
+        /* margin-top: 1.5rem; */
         border: none;
         background: transparent;
         color: var(--white);
@@ -273,18 +274,32 @@ export const Container = styled.div<CardProps>`
         }
     }
 
-    h5 {
+    .Types {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
         font-size: 1rem;
         margin-top: 30px;
         color: white;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
+
+        .tag{
+            background: rgba(0, 0, 0, .1);
+            border-radius: 6px;
+            padding: 3px;
+        }
     }
 
     h6 {
         font-family: 'Baloo 2', Arial, Helvetica, cursive;
         font-size: 0.8rem;
-        margin-top: 1px;
         color: white;
+    }
+
+    .Atributes{
+        margin-top: 22px;
     }
 
     .card:hover h3{
