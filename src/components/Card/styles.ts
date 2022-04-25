@@ -288,7 +288,7 @@ export const Container = styled.div<CardProps>`
         .tag{
             background: rgba(0, 0, 0, .1);
             border-radius: 6px;
-            padding: 3px;
+            padding: 2px;
         }
     }
 
@@ -296,10 +296,11 @@ export const Container = styled.div<CardProps>`
         font-family: 'Baloo 2', Arial, Helvetica, cursive;
         font-size: 0.8rem;
         color: white;
+
     }
 
     .Atributes{
-        margin-top: 22px;
+        margin-top: 42px;
     }
 
     .card:hover h3{
